@@ -14,8 +14,8 @@ library(here)
 
 
 ```{r}
-#ca_np<-read_csv(here("data","ca_np.csv"))
-#ci_np<-read_excel(here("data","ci_np.xlsx"))
+ca_np<-read_csv(here("data","ca_np.csv"))
+ci_np<-read_excel(here("data","ci_np.xlsx"))
 ggbase<-ggplot(data=ci_np,aes(x = year, y=visitors))
 ggbase +
   geom_line(
@@ -35,6 +35,17 @@ ggbase +
     aes(size = visitors,
         color = visitors),
     alpha = 0.5
-  )
+  )+ theme_light()
+ggbase +
+  geom_point(
+    aes(size = visitors,
+        color = visitors),
+    alpha = 0.5
+  )+ theme_bw()
+ggbase + geom_line(linetype="dotted")+theme_bw()+labs(title="Channel Islands Annual Visitors",subtitle = "1963-2016")
+ggnp<-ggplot(data=ca_np, aes(x=year, y =visitors, group = park_name))
+ggnp+geom_line(show.legend=FALSE) + theme_light()+facet_wrap(~park_name) +labs(x = "year", y = "annual visitors")
+
+
 ```
 
