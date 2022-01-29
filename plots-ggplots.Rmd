@@ -7,4 +7,34 @@ output: html_document
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(readxl)
+library(here)
 ```
+
+
+```{r}
+#ca_np<-read_csv(here("data","ca_np.csv"))
+#ci_np<-read_excel(here("data","ci_np.xlsx"))
+ggbase<-ggplot(data=ci_np,aes(x = year, y=visitors))
+ggbase +
+  geom_line(
+  color = "purple",
+  linetype = "dashed"
+  )
+ggbase+
+  geom_point(
+    color="red",
+    shape=19,
+    alpha=0.3,
+  )
+ggbase+geom_col()
+ggbase+geom_area()
+ggbase +
+  geom_point(
+    aes(size = visitors,
+        color = visitors),
+    alpha = 0.5
+  )
+```
+
