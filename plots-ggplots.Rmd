@@ -1,0 +1,10 @@
+---
+title: "making plots and working with github"
+author: "Chris Hill"
+date: "1/29/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
