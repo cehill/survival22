@@ -1,0 +1,29 @@
+---
+title: "creating_mark_input_files"
+author: "Chris Hill"
+date: "2/13/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(tidyverse)
+library(readxl)
+library(here)
+library(skimr)
+library(kableExtra)
+
+```
+##read in data to file called resightings
+```{r}
+resightings<-(read.csv(here("data/losh_resights20220213.csv")))
+```
+
+##explore data
+```{r}
+skimr::skim(resightings)
+```
+
